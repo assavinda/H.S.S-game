@@ -1,0 +1,73 @@
+#weapons {
+    opacity: 0;
+}
+
+@keyframes signdown {
+    0% {
+        top: -50%;
+    }
+
+    50% {
+        top: 35%;
+        opacity: 1;
+    }
+
+    100% {
+        top: 35%;
+        opacity: 0;
+    }
+}
+
+#weaponsign {
+    top: -50%;
+    width: 50%;
+    left: 25%;
+    opacity: 1;
+    animation-name: signdown;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: paused;
+}
+
+@keyframes gunfade {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+#GunImages {
+    width: 100%;
+    top: 0%;
+    left: 0%;
+    animation-name: gunfade;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-play-state: paused;
+}
+
+@keyframes bowfade {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+#bowImages{
+    width: 100%;
+    top: 0%;
+    left: 12%;
+    animation-name: bowfade;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-play-state: paused;
+}

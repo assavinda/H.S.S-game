@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSS Game</title>
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/lobby.css">
+    <link rel="stylesheet" href="../css/weapons.css">
+    <link rel="stylesheet" href="../css/Collectable.css">
+    <link rel="stylesheet" href="../css/meat.css">
+</head>
+<body>
+    <div class="container">
+        <!-- ซีนบทพูด โผล่ได้ทุกหน้า -->
+        <section id="qa-scene" class="contents hidden">
+            <div id="choices" class="sm-elements">
+                <div id="yes" class="choices">
+                    yes
+                </div>
+                <div id="no" class="choices">
+                    no
+                </div>
+            </div>
+        </section>
+
+        <section id="npc-scene" class="contents hidden"> 
+            <div id="dark-bg" class="lg-elements" style="z-index: 1;"></div>
+
+            <img id="npc" class="sm-elements" src="../assets/Character/Normal.png" style="z-index: 3;">
+            <div id="dialogueBox" class="sm-elements" style="z-index: 2;">
+                <div id="textDiv" class="sm-elements" style="z-index: 4;">
+                    <p id="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...</p>
+                </div>
+                <img id="dialogueBg" src="../assets/Button/TextBox.png" style="z-index: 2;">
+                <img id="next-btn" class="sm-elements" src="../assets/Button/….png" style="z-index: 5;">
+            </div>
+        </section>
+        
+        <!-- scene Lobby -->
+        <section id="lobby" class="contents">
+            <img class="lg-elements" src="../assets/lobby/Lobby_BG.png" style="z-index: 0;">
+            <img id="btn-start" class="sm-elements" src="../assets/Button/Start.png" style="z-index: 1;">
+
+            <script type="module" src="../js/lobby.js"></script>
+        </section>
+ 
+        <!-- scene Weapons -->
+         <section id="weapons" class="contents page-onload hidden">
+            <img  id="GunImages" class="sm-elements" src="../assets/Page1/Rifel.png" style="z-index: 2;">
+            <img  id="bowImages" class="sm-elements" src="../assets/Page1/Ballista.png" style="z-index: 2;">
+            <img  id="zoombtn" class="sm-elements zoom" src="../assets/Button/Suggest.png" style="z-index: 2;">
+            <img id="backbtn" class="sm-elements back" src="../assets/Button/Back.png" style="z-index: 2;">
+            <img id="weaponsign" class="sm-elements" src="../assets/Button/Weapon.png" style="z-index: 1;">
+            <img class="lg-elements" src="../assets/Page1/Weapon_BG.jpg" style="z-index: 0;">
+
+            <script type="module" src="../js/weapons.js"></script>
+        </section>
+
+        <!-- scene Collection -->
+        <section id="Collectable" class="contents page-onload hidden">
+            <img class="lg-elements" src="../assets/Page2/Collectable1.png" style="z-index: 0;">
+            <img id="Collectionsign" class="sm-elements" src="../assets/Button/Collectable.png" style="z-index: 1;">
+            <img  id="item-images" class="sm-elements" src="../assets/Page2/กะโหลก.png" style="z-index: 2;">
+            <img  id="zoombtn2" class="sm-elements zoom" src="../assets/Button/Suggest.png" style="z-index: 2;">
+            <img id="backbtn2" class="sm-elements back" src="../assets/Button/Back.png" style="z-index: 2;">
+            <script type="module" src="../js/Collectable.js"></script>
+        </section>
+
+        <section id="meatShop" class="contents page-onload hidden">
+            <img class="lg-elements" src="../assets/Page3/MeatShop_BG.PNG" style="z-index: 0;">
+            <img id="meatsign" class="sm-elements" src="../assets/Button/Meat shop.png" style="z-index: 1;">
+
+            <script type="module" src="../js/meat.js"></script>
+        </section>
+
+        <audio id="backgroundMusic" loop>
+            <source src="../assets/song/Demented-Nightmare-MP3(chosic.com).aac" type="audio/aac">
+        </audio>
+
+    </div>
+    <script type="module" src="../js/audio.js"></script>
+    <script type="module" src="../js/general.js"></script>
+
+</body>
+</html>

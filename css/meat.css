@@ -1,0 +1,32 @@
+#meatShop {
+    opacity: 0;
+}
+
+
+@keyframes signdown {
+    0% {
+        top: -50%;
+    }
+
+    50% {
+        top: 35%;
+        opacity: 1;
+    }
+
+    100% {
+        top: 35%;
+        opacity: 0;
+    }
+}
+
+#meatsign {
+    top: -50%;
+    width: 50%;
+    left: 25%;
+    opacity: 1;
+    animation-name: signdown;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: paused;
+}

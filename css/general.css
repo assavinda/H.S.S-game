@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Trirong:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    -webkit-user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    overflow: hidden;
+}
+
+.container {
+    width: 85vw;
+    height: 0vh;
+    padding-top: calc(9/15 * 85vw);
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    background-color: black;
+}
+
+.contents {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+.lg-elements {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.sm-elements {
+    position: absolute;
+}
+
+@keyframes page-onload {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.page-onload {
+    animation-name: page-onload;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: paused;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes npcfade {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+#npc {
+    width: 40%;
+    left: 2%;
+    bottom: 0%;
+    animation-name: npcfade;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-play-state: paused;
+}
+
+#dialogueBg {
+    width: 100%;
+}
+
+@keyframes dlbfade {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+#dialogueBox {
+    width: 70%;
+    left: 20%;
+    bottom: 0%;
+    animation-name: dlbfade;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-play-state: paused;
+}
+
+#textDiv {
+    width: 65%;
+    left: 25%;
+    top: 23%;
+}
+
+#text {
+    font-size: 1.2vw;
+    font-family: "Trirong", serif;
+    font-weight: 300;
+    font-style: normal;
+    text-align: start;
+    color: white;
+}
+
+#next-btn {
+    width: 10%;
+    left: 82%;
+    top: 63%;
+    cursor: pointer;
+    display: none;
+}
+
+#next-btn:hover {
+    width: 12%;
+    left: 81%;
+    top: 61%;
+}
+
+@keyframes darkbg {
+    0% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+#dark-bg {
+    background-color: black;
+    opacity: 0;
+    animation-name: darkbg;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-play-state: paused;
+}
+
+@keyframes choicemove{
+    0% {
+        left: 150%;
+    }
+
+    100% {
+        left: 64%;
+    }
+}
+
+#choices {
+    width: 40%;
+    height: 30%;
+    z-index: 50;
+    top: 30%;
+    left: 10%;
+    animation-name: choicemove;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: paused;
+}
+
+.choices {
+    color: white;
+    background-image: url(../assets/Button/Answer_TextBox.png);
+    background-size: cover;
+    background-repeat: no-repeat ;
+    background-position: center;
+    margin: 5%;
+    height: 40%;
+    padding-top: 6.2%;
+    text-align: center;
+    font-size: 1.1vw;
+    font-family: "Trirong", serif;
+    font-weight: 400;
+}
+
+.choices:hover {
+    filter: drop-shadow(0px 0px 0.4vw #ffffff);
+    cursor: pointer;
+}
+
+@keyframes zoomfade {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.25;
+    }
+}
+
+.zoom{
+    width: 10%;
+    top: 30%;
+    left: 67%;
+    display: none;
+    opacity: 0;
+    animation-name: zoomfade; 
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-play-state: paused;
+    cursor: pointer;
+}
+
+@keyframes backfade {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.25;
+    }
+}
+
+.back{
+    width: 8%;
+    top: 65%;
+    left: 25%;
+    display: none;
+    animation-name: backfade; 
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-play-state: paused;
+    cursor: pointer;
+}
