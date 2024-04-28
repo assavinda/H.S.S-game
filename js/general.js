@@ -99,6 +99,11 @@ nextbtn.addEventListener('click',() => {
                 localStorage.setItem('key',key)
             }
         }
+        else if(currentSceneKey == 'meatShop') {
+            if(currentScript == 1) {
+                DLcontrol.EndNpcScene()
+            }
+        }
         localStorage.setItem('currentScene', currentScene)
         localStorage.setItem('currentScript',currentScript);
     }
@@ -142,3 +147,53 @@ export function NextPage() {
     },500)
 }
 
+window.addEventListener('click',(e) => {
+    const yes = document.getElementById('yes');
+    const no = document.getElementById('no');
+    let scene = localStorage.getItem('currentScene');
+    let script = localStorage.getItem('currentScript');
+
+    let target = e.target.id
+    let keyItem = localStorage.getItem('key');
+
+    if(Object.keys(DLcontrol.script)[scene] == 'Collectable' || Object.keys(DLcontrol.script)[scene] == 'meatShop') {
+        yes.innerHTML = DLcontrol.QAscript[Object.keys(DLcontrol.script)[scene]][keyItem]['yes'][0];
+        no.innerHTML = DLcontrol.QAscript[Object.keys(DLcontrol.script)[scene]][keyItem]['no'][0];
+        if(target == 'yes') {
+            console.log('yes')
+            localStorage.setItem('ans',1)
+            if(Object.keys(DLcontrol.script)[scene] == 'Collectable') {
+                DLcontrol.ShowNpcScene(Object.keys(DLcontrol.script)[scene],script);
+            }
+            else if(Object.keys(DLcontrol.script)[scene] == 'meatShop') {
+                script++;
+                localStorage.setItem('currentScript',script)
+                const gift = document.getElementById('gift')
+                gift.classList.remove('hidden')
+                gift.style.animationPlayState = 'running'
+                setTimeout(() => {
+                    DLcontrol.NpcTalk(Object.keys(DLcontrol.script)[scene],script);
+                },500)
+            }
+            choices.style.animationPlayState = 'running'
+            console.log('keyagain:',keyItem)
+            DLcontrol.script[Object.keys(DLcontrol.script)[scene]][script][0] = DLcontrol.QAscript[Object.keys(DLcontrol.script)[scene]][keyItem]['yes'][1][0];
+            DLcontrol.script[Object.keys(DLcontrol.script)[scene]][script][1] = DLcontrol.QAscript[Object.keys(DLcontrol.script)[scene]][keyItem]['yes'][1][1];
+        }
+        else if(target == 'no') {
+            console.log('no')
+            localStorage.setItem('ans',0)
+            if(Object.keys(DLcontrol.script)[scene] == 'Collectable') {
+                DLcontrol.ShowNpcScene(Object.keys(DLcontrol.script)[scene],script);
+            }
+            else if(Object.keys(DLcontrol.script)[scene] == 'meatShop') {
+                NextPage()
+                DLcontrol.EndNpcScene()
+            }
+            choices.style.animationPlayState = 'running'
+            console.log('keyagain:',keyItem)
+            DLcontrol.script[Object.keys(DLcontrol.script)[scene]][script][0] = DLcontrol.QAscript[Object.keys(DLcontrol.script)[scene]][keyItem]['no'][1][0];
+            DLcontrol.script[Object.keys(DLcontrol.script)[scene]][script][1] = DLcontrol.QAscript[Object.keys(DLcontrol.script)[scene]][keyItem]['yes'][1][1];
+        }
+    }
+})

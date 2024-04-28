@@ -62,9 +62,9 @@
 }
 
 #bowImages{
-    width: 100%;
+    width: 107.5%;
     top: 0%;
-    left: 12%;
+    left: 0%;
     animation-name: bowfade;
     animation-duration: 1s;
     animation-iteration-count: infinite;

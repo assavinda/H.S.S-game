@@ -2,7 +2,6 @@
     opacity: 0;
 }
 
-
 @keyframes signdown {
     0% {
         top: -50%;
@@ -29,4 +28,125 @@
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-play-state: paused;
+}
+
+@keyframes meats {
+    0% {
+        left: var(--left);
+    }
+    100% {
+        left: calc(var(--left) - 40%);
+    }
+}
+
+@keyframes meatsrv {
+    0% {
+        left: var(--left);
+    }
+    100% {
+        left: calc(var(--left) + 40%);
+    }
+}
+
+.meats {
+    width: 50%;
+    top: 0%;
+    cursor: pointer;
+    pointer-events: none;
+    animation-name: meats;
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-play-state: paused;
+}
+
+.m-sideleft {
+    --left: -55%;
+    left: var(--left);
+}
+
+.m-left {
+    --left: -15%;
+    left: var(--left);
+}
+
+.m-center {
+    --left: 25%;
+    left: var(--left);
+
+}
+
+.m-right {
+    --left: 65%;
+    left: var(--left);
+}
+
+.m-sideright {
+    --left: 105%;
+    left: var(--left);
+}
+
+#meatdes {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+@keyframes desimg {
+    0% {
+        margin-left: -20%;
+        rotate: -30deg;
+        opacity: 0;
+    }
+
+    100% {
+        margin-left: -5%;
+        rotate: 0deg;
+        opacity: 1;
+    }
+}
+
+#desimg {
+    animation-name: desimg;
+    animation-duration: 0.8s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-play-state: paused;
+    animation-fill-mode: forwards;
+}
+
+#meatdes {
+    pointer-events: none;
+}
+
+#backbtn3 {
+    width: 10%;
+    left: 80%;
+    top: 85%;
+    opacity: 1;
+}
+
+@keyframes gift {
+    0% {
+        top: 0%;
+        opacity: 0;
+    }
+
+    100% {
+        top: -10%;
+        opacity: 1;
+    }
+}
+
+#gift {
+    width: 40%;
+    left: 32%;
+    top: 0%;
+    opacity: 0;
+    animation-name: gift;
+    animation-duration: 0.8s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-play-state: paused;
+    animation-fill-mode: forwards;
 }

@@ -84,7 +84,27 @@ export class DialogueControl {
         ]
       ],
       meatShop:[
-        [`ในโซนสุดท้ายนี้ ขอเสนอให้รู้จักกับร้านขายเนื้อของทางเรา เนื้อมนุษย์เกรดดีที่ผ่านกระบวนการชำแหละ เก็บรักษาด้วยความสะอาดและปลอดเชื้อที่สุด ที่นี่มีเนื้อหลากหลายส่วนให้คุณได้เลือกสรร เชิญหรรษากับรสชาติที่เลิศหรูของทางเราได้เลยครับ`,0],]
+        [
+          `ในโซนสุดท้ายนี้ ขอเสนอให้รู้จักกับร้านขายเนื้อของทางเรา เนื้อมนุษย์เกรดดีที่ผ่านกระบวนการชำแหละ เก็บรักษาด้วยความสะอาดและปลอดเชื้อที่สุด ที่นี่มีเนื้อหลากหลายส่วนให้คุณได้เลือกสรร เชิญหรรษากับรสชาติที่เลิศหรูของทางเราได้เลยครับ`,
+          0
+        ],
+        [
+          `...`,
+          0
+        ],
+        [
+          `เลือกชมเสร็จแล้วหรือครับ? ในเมื่อคุณเป็นแขกพิเศษสำหรับพวกเราในค่ำคืนนี้ กระผมจึงอยากมอบของฝากดีๆ ให้คุณกลับไปเป็นของขวัญ คุณต้องการที่จะรับน้ำใจของกระผมไปหรือไม่ครับ?`,
+          0
+        ],
+        [
+          `3`,
+          0
+        ]
+      ],
+      end: [
+        `ไม่เป็นไรครับ ก็ดีที่จะไม่ต้องมีพิธีรีตองอะไรมาก\nขอบคุณนะครับที่หลงเข้ามาเป็นวัตถุดิบของเรา`,
+        `ขอบคุณนะครับที่หลงเข้ามาเป็นวัตถุดิบของเรา`
+      ]
     };
 
     this.QAscript = {
@@ -139,6 +159,18 @@ export class DialogueControl {
               ,1]
               ]
             }
+        },
+        meatShop:{
+          meatgift: {
+            yes: [`รับ`,
+            [`ขอบคุณนะครับ นี่คือชิ้นเนื้อที่ดีที่สุดในร้านของเรา ของขวัญชิ้นสุดท้ายสำหรับคุณผู้ที่จะไม่ได้กลับออกไป`
+            ,3]
+            ],
+            no: [`ไม่รับ`,
+            [`...`
+            ,3]
+            ]
+          }
         }
     };
 
@@ -155,6 +187,11 @@ export class DialogueControl {
   async ShowNpcScene(scene,script) {
     let npcScene = document.getElementById('npc-scene');
 
+    let zoombtn = document.getElementById('zoombtn')
+    let zoombtn2 = document.getElementById('zoombtn2')
+    zoombtn.style.display = 'none'
+    zoombtn2.style.display = 'none'
+
     let darkBg = document.getElementById('dark-bg');
     darkBg.onanimationiteration = () => {
       darkBg.style.animationPlayState = 'paused'
@@ -170,6 +207,9 @@ export class DialogueControl {
     dialogueBox.onanimationiteration = () => {
       dialogueBox.style.animationPlayState = 'paused'
     }
+
+    let nextbtn = document.getElementById('next-btn');
+    nextbtn.style.display = 'none';
 
     npcScene.classList.remove('hidden');
     return new Promise((resolve) => {
@@ -228,14 +268,12 @@ export class DialogueControl {
     }
   }
 
-  async GenerateText(scene,script) {
+  async GenerateText(scene,scripts) {
     let currentScene = scene
-    let currentScript = this.script[currentScene][script][0]
-
-    console.log('scene',scene ,'script',script)
-
+    let currentScript = this.script[currentScene][scripts][0]
     let text = document.getElementById('text');
 
+    console.log('scene',scene ,'script',scripts)
     let nextbtn = document.getElementById('next-btn');
     nextbtn.style.display = 'none';
 
@@ -247,6 +285,23 @@ export class DialogueControl {
       if (char >= currentScript.length) {
         PauseGenerateText(TextInterval);
         nextbtn.style.display = 'block';
+        if(scene == 'meatShop') {
+
+          let key = 'meatgift'
+          console.log('key = ',key)
+          localStorage.setItem('key',key)
+  
+          if(scripts == 2) {
+            const choices = document.getElementById('choices');
+            choices.classList.remove('hidden')
+            choices.style.animationPlayState = 'running'
+            console.log(this.script['meatShop'])
+            nextbtn.style.display = 'none';
+          }
+          else if(scripts >= 3) {
+            console.log(this.script['meatShop'])
+          }
+        }
       }
     },10);
 
@@ -263,6 +318,7 @@ export class DialogueControl {
   }
 
   async EndNpcScene() {
+    
     let text = document.getElementById('text');
     text.innerHTML = `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...`
 
@@ -285,7 +341,20 @@ export class DialogueControl {
     }
     dialogueBox.style.animationPlayState = 'running';
 
+    let currentScript = localStorage.getItem('currentScript')
+    let currentScene = localStorage.getItem('currentScene');
+    let currentSceneKey = Object.keys(this.script)[currentScene];
     let npcScene = document.getElementById('npc-scene');
+    if (currentSceneKey == 'meatShop' && currentScript >= 2){
+      const scene = document.getElementById('meatShop')
+      scene.classList.add('hidden')
+      npcScene.classList.add('hidden');
+      const qascene = document.getElementById('qa-scene');
+      qascene.classList.add('hidden');
+
+      const jumpscare = document.getElementById('jumpscaresound')
+      jumpscare.play()
+    }
     return new Promise((resolve) => {
       setTimeout(() => {
         npcScene.classList.add('hidden');

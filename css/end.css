@@ -1,0 +1,13 @@
+#endtextDiv {
+    width: 100%;
+    top: 90%;
+    text-align: center;
+}
+
+#endtext {
+    font-size: 1.3vw;
+    font-family: "Trirong", serif;
+    font-weight: 300;
+    font-style: normal;
+    color: white;
+}

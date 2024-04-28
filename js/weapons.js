@@ -10,7 +10,6 @@ const Backbtn = document.getElementById('backbtn');
 const gun = document.getElementById('GunImages');
 const bow = document.getElementById('bowImages');
 
-let normalScale = 1;
 let isZoomed = false; // เพิ่มตัวแปรเพื่อตรวจสอบสถานะการซูม
 
 sign.onanimationiteration = () => {
@@ -25,29 +24,38 @@ bow.onanimationiteration = () => {
     bow.style.animationPlayState = 'paused';
 };
 
+let scale = 1.0
+
 zoom.addEventListener('click', () => {
     console.log('zoom');
     if (isZoomed == false) {
-        thispage.style.transform = 'scale(1.4)';
-        normalScale = 1.4;
+        let zoomInterval = setInterval(() => {
+            scale += 0.005
+            thispage.style.transform = `scale(${scale})`;
+            if(scale >= 1.4) {
+                stopInterval(zoomInterval)
+            }
+        },2)
         zoom.style.display = 'none';
         Backbtn.style.display = 'block';
         Backbtn.style.animationPlayState = 'running'
         isZoomed = true; // เมื่อซูมเข้าแล้วเปลี่ยนสถานะการซูม
-    } else {
-        thispage.style.transform = 'scale(1)';
-        normalScale = 1;
-        Backbtn.style.display = 'none'; // ซ่อนปุ่ม back เมื่อกลับไปยังขนาดปกติ
-        zoom.style.display = 'block'; // แสดงปุ่ม zoom อีกครั้งหลังจากกลับไปยังขนาดปกติ
-        isZoomed = false; // เมื่อกดปุ่ม back เปลี่ยนสถานะการซูม
     }
 });
 
+function stopInterval(interval) {
+    clearInterval(interval)
+}
+
 Backbtn.addEventListener('click', () => {
-    thispage.style.transform = 'scale(1)';
-    normalScale = 1;
+    let zoomInterval = setInterval(() => {
+        scale -= 0.005
+        thispage.style.transform = `scale(${scale})`;
+        if(scale <= 1) {
+            stopInterval(zoomInterval)
+        }
+    },2)
     Backbtn.style.display = 'none';
-    zoom.style.display = 'block';
     isZoomed = false; // เมื่อกดปุ่ม back เปลี่ยนสถานะการซูม
 
     let currentScene = localStorage.getItem('currentScene');

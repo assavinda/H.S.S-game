@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/weapons.css">
     <link rel="stylesheet" href="../css/Collectable.css">
     <link rel="stylesheet" href="../css/meat.css">
+    <link rel="stylesheet" href="../css/end.css">
 </head>
 <body>
     <div class="container">
@@ -26,7 +27,7 @@
 
         <section id="npc-scene" class="contents hidden"> 
             <div id="dark-bg" class="lg-elements" style="z-index: 1;"></div>
-
+            <img id="gift" class="sm-elements hidden" src="../assets/Page3/ห่อเนื้อของขวัญ.PNG" style="z-index: 1;">
             <img id="npc" class="sm-elements" src="../assets/Character/Normal.png" style="z-index: 3;">
             <div id="dialogueBox" class="sm-elements" style="z-index: 2;">
                 <div id="textDiv" class="sm-elements" style="z-index: 4;">
@@ -67,12 +68,37 @@
             <script type="module" src="../js/Collectable.js"></script>
         </section>
 
+        <!-- scene Meat Shop -->
         <section id="meatShop" class="contents page-onload hidden">
             <img class="lg-elements" src="../assets/Page3/MeatShop_BG.PNG" style="z-index: 0;">
-            <img id="meatsign" class="sm-elements" src="../assets/Button/Meat shop.png" style="z-index: 1;">
+            <img id="meatsign" class="sm-elements" src="../assets/Button/Meat shop.png" style="z-index: 2;">
+            <img id="meat0" class="sm-elements meats m-sideleft" src="../assets/Page3/MEAT/เครื่องใน.PNG" style="z-index: 1; opacity: 0;">
+            <img id="meat1" class="sm-elements meats m-left" src="../assets/Page3/MEAT/เครื่องใน.PNG" style="z-index: 1; opacity: 0; pointer-events: none;">
+            <img id="meat2" class="sm-elements meats m-center" src="../assets/Page3/MEAT/เครื่องใน.PNG" style="z-index: 1;">
+            <img id="meat3" class="sm-elements meats m-right" src="../assets/Page3/MEAT/เนื้อแขน.PNG" style="z-index: 1;">
+            <img id="meat4" class="sm-elements meats m-sideright" src="../assets/Page3/MEAT/เนื้อต้นขา.PNG" style="z-index: 1;">
+
+            <div id="meatdes" class="sm-elements hidden" style="z-index: 5;">
+                <img id="desimg" src="../assets/Page3/แผ่นอธิบายเนื้อ/แผ่น_เครื่องใน.png">
+            </div>
+            <img id="backbtn3" class="sm-elements back" src="../assets/Button/Back.png" style="z-index: 6;">
 
             <script type="module" src="../js/meat.js"></script>
         </section>
+
+        <section id="end" class="contents page-onload hidden">
+            <div>
+                <video id="vdo" class="video-bg" src="../assets/Page3/Ending-vdo.mov" autoplay loop muted></video>
+            </div>
+            <div id="endtextDiv" class="sm-elements">
+                <p id="endtext"></p>
+            </div>
+            <script type="module" src="../js/end.js"></script>
+        </section>
+
+        <audio id="jumpscaresound">
+            <source src="../assets/song/jumpscaresound.aac" type="audio/aac">
+        </audio>
 
         <audio id="backgroundMusic" loop>
             <source src="../assets/song/Demented-Nightmare-MP3(chosic.com).aac" type="audio/aac">

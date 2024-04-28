@@ -42,9 +42,9 @@
 }
 
 #item-images {
-    width: 100%;
+    width: 107.5%;
     top: 0%;
-    left: 0%;
+    left: -3.5%;
     animation-name: skullfade;
     animation-duration: 1s;
     animation-iteration-count: infinite;
