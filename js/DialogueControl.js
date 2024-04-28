@@ -242,28 +242,38 @@ export class DialogueControl {
       itemImages.style.animationName = 'none';
       if(script == 0) {
         itemImages.src = "../assets/Page2/กะโหลก.png"
-        itemImages.style.animationName = 'skullfade';
-        itemImages.style.animationPlayState = 'running';
+        setTimeout(() => {
+          itemImages.style.animationName = 'skullfade';
+          itemImages.style.animationPlayState = 'running';
+        },1500)
       }
       else if(script == 2) {
         itemImages.src = "../assets/Page2/นิ้ว.png"
-        itemImages.style.animationName = 'skullfade';
-        itemImages.style.animationPlayState = 'running';
+        setTimeout(() => {
+          itemImages.style.animationName = 'skullfade';
+          itemImages.style.animationPlayState = 'running';
+        },1500)
       }
       else if(script == 4) {
         itemImages.src = "../assets/Page2/เก้าอี้กระดูก.png"
-        itemImages.style.animationName = 'skullfade';
-        itemImages.style.animationPlayState = 'running';
+        setTimeout(() => {
+          itemImages.style.animationName = 'skullfade';
+          itemImages.style.animationPlayState = 'running';
+        },1500)
       }
       else if(script == 6) {
         itemImages.src = "../assets/Page2/หนัง.png"
-        itemImages.style.animationName = 'skullfade';
-        itemImages.style.animationPlayState = 'running';
+        setTimeout(() => {
+          itemImages.style.animationName = 'skullfade';
+          itemImages.style.animationPlayState = 'running';
+        },1500)
       }
       else if(script == 8) {
         itemImages.src = "../assets/Page2/มีดกระดูก.png"
-        itemImages.style.animationName = 'skullfade';
-        itemImages.style.animationPlayState = 'running';
+        setTimeout(() => {
+          itemImages.style.animationName = 'skullfade';
+          itemImages.style.animationPlayState = 'running';
+        },1500)
       }
     }
   }
