@@ -247,7 +247,7 @@ export class DialogueControl {
         setTimeout(() => {
           itemImages.style.animationName = 'skullfade';
           itemImages.style.animationPlayState = 'running';
-        },1000)
+        },700)
       }
       else if(script == 2) {
         itemImages.src = "../assets/Page2/นิ้ว.png"
@@ -255,7 +255,7 @@ export class DialogueControl {
         setTimeout(() => {
           itemImages.style.animationName = 'skullfade';
           itemImages.style.animationPlayState = 'running';
-        },1000)
+        },700)
       }
       else if(script == 4) {
         itemImages.src = "../assets/Page2/เก้าอี้กระดูก.png"
@@ -263,7 +263,7 @@ export class DialogueControl {
         setTimeout(() => {
           itemImages.style.animationName = 'skullfade';
           itemImages.style.animationPlayState = 'running';
-        },1000)
+        },700)
       }
       else if(script == 6) {
         itemImages.src = "../assets/Page2/หนัง.png"
@@ -271,7 +271,7 @@ export class DialogueControl {
         setTimeout(() => {
           itemImages.style.animationName = 'skullfade';
           itemImages.style.animationPlayState = 'running';
-        },1000)
+        },700)
       }
       else if(script == 8) {
         itemImages.src = "../assets/Page2/มีดกระดูก.png"
@@ -279,7 +279,7 @@ export class DialogueControl {
         setTimeout(() => {
           itemImages.style.animationName = 'skullfade';
           itemImages.style.animationPlayState = 'running';
-        },1000)
+        },700)
       }
     }
   }
