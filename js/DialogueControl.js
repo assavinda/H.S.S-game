@@ -319,7 +319,7 @@ export class DialogueControl {
           }
         }
       }
-    },30);
+    },20);
 
     function PauseGenerateText(Interval) {
       clearInterval(Interval);
