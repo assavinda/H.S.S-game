@@ -4,10 +4,15 @@
 
 @keyframes signdown {
     0% {
-        top: -50%;
+        top: -30%;
     }
 
-    50% {
+    30% {
+        top: 35%;
+        opacity: 1;
+    }
+
+    70% {
         top: 35%;
         opacity: 1;
     }
@@ -19,12 +24,12 @@
 }
 
 #weaponsign {
-    top: -50%;
+    top: -30%;
     width: 50%;
     left: 25%;
     opacity: 1;
     animation-name: signdown;
-    animation-duration: 2s;
+    animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-play-state: paused;

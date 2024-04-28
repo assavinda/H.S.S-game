@@ -28,11 +28,11 @@ thispage.onanimationiteration = () => {
 
         setTimeout(() => {
             sign.style.animationPlayState = 'running';
-        },1000);
+        },500);
 
         setTimeout(() => {
             DLcontrol.ShowNpcScene(Object.keys(DLcontrol.script)[scene],script);
-        },2000);
+        },3000);
 
         setTimeout(() => {
             for(let i=0;i<=4;i++) {
@@ -139,6 +139,11 @@ thispage.addEventListener('click',(e) => {
             }
             play()
             console.log(meatIndex)
+            if(meatIndex >= meatItems.length - 1) {
+                setTimeout(() => {
+                    finish.style.display = 'block'
+                },800)
+            }
         }
         else if(e.target.id == 'meat1') {
             meatIndex--;
@@ -148,35 +153,36 @@ thispage.addEventListener('click',(e) => {
             }
             play()
             console.log(meatIndex)
+            if(meatIndex <= meatItems.length - 1) {
+                finish.style.display = 'none'
+            }
         }
         else if(e.target.id == 'meat2') {
             descriptDiv.classList.remove('hidden')
             descriptDiv.style.pointerEvents = 'all'
             back.style.display = 'block'
             descriptImage.style.animationPlayState = 'running'
+            finish.style.display = 'none'
         }
         descriptImage.src = `../assets/Page3/แผ่นอธิบายเนื้อ/แผ่น_${meatItems[meatIndex]}.png`
     }
 })
 
 const back = document.getElementById('backbtn3')
+const finish = document.getElementById('finishbtn')
 
 back.addEventListener('click',() => {
     descriptDiv.classList.add('hidden')
     descriptDiv.style.pointerEvents = 'none'
     back.style.display = 'none'
-    if(viewed.includes(meatItems[meatIndex]) == false) {
-        viewed.push(meatItems[meatIndex])
-        console.log('pushed : ',meatItems[meatIndex],'\nviewed length : ',viewed.length)
-    }
-    if(viewed.length >= meatItems.length) {
-        let currentScript = localStorage.getItem('currentScript')
-        let currentScene = localStorage.getItem('currentScene');
-        let currentSceneKey = Object.keys(DLcontrol.script)[currentScene];
-        currentScript++;
-        localStorage.setItem('currentScript',currentScript)
-        DLcontrol.ShowNpcScene(currentSceneKey,currentScript)
-    }
-    console.log('viewed length : ',viewed.length)
-    console.log(meatItems.length)
+})
+
+finish.addEventListener('click',() => {
+    let currentScript = localStorage.getItem('currentScript')
+    let currentScene = localStorage.getItem('currentScene');
+    let currentSceneKey = Object.keys(DLcontrol.script)[currentScene];
+    currentScript++;
+    localStorage.setItem('currentScript',currentScript)
+    DLcontrol.ShowNpcScene(currentSceneKey,currentScript)
+    finish.style.display = 'none'
 })

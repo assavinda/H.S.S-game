@@ -26,11 +26,11 @@ thispage.onanimationiteration = () => {
 
         setTimeout(() => {
             sign.style.animationPlayState = 'running';
-        },1000);
+        },500);
 
         setTimeout(() => {
             DLcontrol.ShowNpcScene(Object.keys(DLcontrol.script)[scene],script);
-        },2000);
+        },3000);
     }
 };
 

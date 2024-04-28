@@ -2,29 +2,13 @@
     opacity: 0;
 }
 
-@keyframes signdown {
-    0% {
-        top: -50%;
-    }
-
-    50% {
-        top: 35%;
-        opacity: 1;
-    }
-
-    100% {
-        top: 35%;
-        opacity: 0;
-    }
-}
-
 #meatsign {
     top: -50%;
     width: 50%;
     left: 25%;
     opacity: 1;
     animation-name: signdown;
-    animation-duration: 2s;
+    animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-play-state: paused;
@@ -122,6 +106,13 @@
 #backbtn3 {
     width: 10%;
     left: 80%;
+    top: 85%;
+    opacity: 1;
+}
+
+#finishbtn {
+    width: 10%;
+    left: 46%;
     top: 85%;
     opacity: 1;
 }
