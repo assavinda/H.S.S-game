@@ -116,6 +116,12 @@ nextbtn.addEventListener('click',() => {
     
 })
 
+localStorage.setItem('skip','no')
+let skipbtn = document.getElementById('skip-btn')
+skipbtn.addEventListener('click',() => {
+    console.log('skip')
+    localStorage.setItem('skip','skip')
+})
 
 
 export function NextPage() {

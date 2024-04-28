@@ -22,7 +22,7 @@
 }
 
 #lobby {
-    opacity: 100;
+    opacity: 1;
     animation-name: fade;
     animation-duration: 1s;
     animation-iteration-count: infinite;

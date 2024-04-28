@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Itim&family=Trirong:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Trirong:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
     -webkit-user-drag: none;
@@ -129,7 +129,7 @@ body {
 
 #text {
     font-size: 1.1vw;
-    font-family: "Trirong", serif;
+    font-family: Trirong, serif;
     font-weight: 300;
     font-style: normal;
     text-align: start;
@@ -145,6 +145,20 @@ body {
 }
 
 #next-btn:hover {
+    width: 12%;
+    left: 81%;
+    top: 61%;
+}
+
+#skip-btn {
+    width: 10%;
+    left: 82%;
+    top: 63%;
+    cursor: pointer;
+    display: none;
+}
+
+#skip-btn:hover {
     width: 12%;
     left: 81%;
     top: 61%;
@@ -204,7 +218,7 @@ body {
     padding-top: 6.2%;
     text-align: center;
     font-size: 1vw;
-    font-family: "Trirong", serif;
+    font-family: Trirong, serif;
     font-weight: 400;
 }
 

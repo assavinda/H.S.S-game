@@ -6,8 +6,38 @@
 
 #endtext {
     font-size: 1.3vw;
-    font-family: "Trirong", serif;
+    font-family: Trirong, serif;
     font-weight: 300;
     font-style: normal;
     color: white;
+}
+
+@keyframes endsentence {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes endsentencerv {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+#endsentence {
+    top: 0%;
+    animation-name: endsentence;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-play-state: running;
+    animation-fill-mode: forwards;
 }

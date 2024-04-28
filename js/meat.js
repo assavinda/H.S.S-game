@@ -175,6 +175,9 @@ back.addEventListener('click',() => {
     descriptDiv.classList.add('hidden')
     descriptDiv.style.pointerEvents = 'none'
     back.style.display = 'none'
+    if (meatIndex == meatItems.length - 1) {
+        finish.style.display = 'block'
+    }
 })
 
 finish.addEventListener('click',() => {

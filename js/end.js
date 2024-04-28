@@ -5,6 +5,7 @@ const DLcontrol = new DialogueControl;
 const thispage = document.getElementById('end')
 const vdo = document.getElementById('vdo')
 const text = document.getElementById('endtext')
+const endsentence = document.getElementById('endsentence')
 
 const sceneObserver = new MutationObserver(mutationsList => {
     mutationsList.forEach(mutation => {
@@ -36,10 +37,15 @@ thispage.onanimationiteration = () => {
         }
     },30);
     setTimeout(() => {
-        thispage.classList.add('hidden')
+        vdo.classList.add('hidden')
+        text.classList.add('hidden')
+        endsentence.classList.remove('hidden')
+        setTimeout(() => {
+            endsentence.style.animationName = 'endsentencerv'
+        },3000)
         setTimeout(() => {
             window.location.reload()
-        },1000)
+        },5000)
     },7000)
 }
 

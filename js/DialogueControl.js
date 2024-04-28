@@ -192,6 +192,9 @@ export class DialogueControl {
     zoombtn.style.display = 'none'
     zoombtn2.style.display = 'none'
 
+    let skipbtn = document.getElementById('skip-btn');
+    skipbtn.style.display = 'none';
+
     let darkBg = document.getElementById('dark-bg');
     darkBg.onanimationiteration = () => {
       darkBg.style.animationPlayState = 'paused'
@@ -292,17 +295,19 @@ export class DialogueControl {
     console.log('scene',scene ,'script',scripts)
     let nextbtn = document.getElementById('next-btn');
     nextbtn.style.display = 'none';
+    let skipbtn = document.getElementById('skip-btn');
+    skipbtn.style.display = 'block';
 
     let char = 0
     let TextInterval = setInterval(() => {
-      text.innerHTML += currentScript.charAt(char)
-      char++;
-      
-      if (char >= currentScript.length) {
+      let skip = localStorage.getItem('skip')
+      if(skip == 'skip') {
+        text.innerHTML = `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${currentScript}`
         PauseGenerateText(TextInterval);
-        nextbtn.style.display = 'block';
+        localStorage.setItem('skip','no')
+        nextbtn.style.display = 'block'
+        skipbtn.style.display = 'none'
         if(scene == 'meatShop') {
-
           let key = 'meatgift'
           console.log('key = ',key)
           localStorage.setItem('key',key)
@@ -316,6 +321,32 @@ export class DialogueControl {
           }
           else if(scripts >= 3) {
             console.log(this.script['meatShop'])
+          }
+        }
+      }
+      else {
+        text.innerHTML += currentScript.charAt(char)
+        char++;
+        if (char >= currentScript.length) {
+          PauseGenerateText(TextInterval);
+          nextbtn.style.display = 'block';
+          skipbtn.style.display = 'none';
+          if(scene == 'meatShop') {
+  
+            let key = 'meatgift'
+            console.log('key = ',key)
+            localStorage.setItem('key',key)
+    
+            if(scripts == 2) {
+              const choices = document.getElementById('choices');
+              choices.classList.remove('hidden')
+              choices.style.animationPlayState = 'running'
+              console.log(this.script['meatShop'])
+              nextbtn.style.display = 'none';
+            }
+            else if(scripts >= 3) {
+              console.log(this.script['meatShop'])
+            }
           }
         }
       }
@@ -334,6 +365,8 @@ export class DialogueControl {
   }
 
   async EndNpcScene() {
+    let skipbtn = document.getElementById('skip-btn');
+    skipbtn.style.display = 'none';
     
     let text = document.getElementById('text');
     text.innerHTML = `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...`
